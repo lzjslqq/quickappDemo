@@ -1,0 +1,14 @@
+<script>
+    /**
+     * 应用级别的配置，供所有页面公用
+     */
+    import util from './util'
+    import injectRef from './utils/regenerator.js'
+    import IO from './utils/systemApi/IO.js'
+
+    export default {
+        showMenu: util.showMenu,
+        createShortcut: util.createShortcut,
+        storage:IO.storage,
+    }
+</script>

@@ -1,0 +1,97 @@
+<template>
+    <div>
+        <div class='text' for='{{keyList}}'>
+            <text class="text">序号：{{$idx}} 值是:{{$item}} --- {{myText}}</text>
+        </div>
+        <div class='text' for='{{keyList2}}'>
+            <text class="text">键:{{$item}}</text>
+        </div>
+        <div> <input class="btn" type="button" value="{{test1}}" onclick="setStorage"></div>
+    </div>
+</template>
+
+<style>
+    .text {
+        color: #ff003f;
+    }
+    
+    .btn {
+        width: 550px;
+        height: 86px;
+        margin-top: 75px;
+        border-radius: 43px;
+        background-color: #09ba07;
+        font-size: 30px;
+        color: #ffffff;
+    }   
+</style>
+
+<script>
+    import router from '@system.router'
+    // import IO from '../utils/systemApi/IO.js'
+
+    export default {
+        private: {
+            myText: '测试666',
+            keyList: [],
+            test1: '初始值'
+        },
+        props: ['name', 'icon'],
+        // data: {
+        //     desc: '即点即用，让你省去下载安装的步骤，立即使用各类服务',
+        //     serviceType: '工具类',
+        //     subjectInfo: 'xxx有限公司',
+        //     copyright: ''
+        // },
+        onInit() {
+            // 设置标题栏
+            this.$page.setTitleBar({
+                text: this.name
+            })
+
+            this.keyList.push('onInit');
+        },
+
+        onReady() {
+            this.keyList.push('onReady')
+
+            console.info(`触发：onReady`)
+            console.info(`执行：获取模板节点：${this.$rootElement()}`) // 执行：获取模板节点：<div attr={} style={"flexDirection":"column"}>...</div>
+        },
+        onShow() {
+            this.keyList.push('onShow')
+
+            console.info(`触发：onShow`)
+            console.info(`执行：获取页面显示状态属性：${this.$visible}`) // true
+        },
+        onHide() {
+            this.keyList.push('onHide')
+
+            console.info(`触发：onHide`)
+            console.info(`执行：获取页面显示状态属性：${this.$visible}`) // false
+        },
+        createShortcut() {
+            // 创建快捷方式
+            this.$app.createShortcut()
+        },
+        onMenuPress() {
+            this.$app.showMenu()
+        },
+        setStorage() {
+            // 存储
+            let that = this;
+
+            this.$app.$def.storage.set({
+                    key: 'test1',
+                    value: 666
+                }).then(() => this.$app.$def.storage.get({
+                    key: 'test1'
+                })).then((data) => this.test1 = data)
+                .finally(() => this.keyList.push('finally'));
+
+            this.keyList = Object.keys(this.$app.$def);
+            this.keyList2 = Object.keys(this.$app);
+
+        }
+    }
+</script>
