@@ -1,3 +1,4 @@
+<import name='com-demo' src='../components/demo'></import>
 <template>
     <div>
         <div class='text' for='{{keyList}}'>
@@ -7,6 +8,7 @@
             <text class="text">键:{{$item}}</text>
         </div>
         <div> <input class="btn" type="button" value="{{test1}}" onclick="setStorage"></div>
+        <com-demo content='自定义组件初始值'></com-demo>
     </div>
 </template>
 
@@ -23,7 +25,7 @@
         background-color: #09ba07;
         font-size: 30px;
         color: #ffffff;
-    }   
+    }
 </style>
 
 <script>

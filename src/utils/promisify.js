@@ -2,7 +2,7 @@
  * @Author: lqq 
  * @Date: 2018-04-23 14:49:00 
  * @Last Modified by: lqq
- * @Last Modified time: 2018-04-27 16:55:44
+ * @Last Modified time: 2018-04-28 15:52:21
  */
 
 
@@ -37,6 +37,7 @@ export default function toPromise(func, obj = {}) {
 
         obj.success = (res) => { resolve(res) };
         obj.fail = (data, code) => { reject(data, code) };
+        obj.cancel = () => { reject() };
         func(obj);
     });
 }
