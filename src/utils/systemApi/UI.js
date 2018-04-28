@@ -2,14 +2,14 @@
  * @Author: lqq 
  * @Date: 2018-04-23 15:45:49 
  * @Last Modified by: lqq
- * @Last Modified time: 2018-04-26 17:19:14
+ * @Last Modified time: 2018-04-28 11:27:37
  */
 import toPromise from '../promisify'
 import share from '@system.share'
 import prompt from '@system.prompt'
 import webview from '@system.webview'
 import notification from '@system.notification'
-import vibrator from '@system.vibrator'
+import vibrator from '@system.vibrator' 
 
 
 export default {
@@ -67,5 +67,5 @@ export default {
      * 触发震动，持续1秒
      * @returns Promise对象
      */
-    vibrate: () => toPromise(vibrator.vibrate())
+    vibrate: () => toPromise(vibrator.vibrate()),
 }
