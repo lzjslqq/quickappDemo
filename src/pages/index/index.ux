@@ -1,0 +1,81 @@
+<template>
+    <div class="page">
+        <div class="header">
+            <image class="logo" src="/images/search_logo.png"></image>
+            <text>{{siteName}}</text>
+            <image class="search-icon" src="/images/search_icon.png"></image>
+        </div>
+        <div class="body">
+            <swiper class="banner" autoplay="true" interval="2000">
+                <block if="{{ adList.length > 0 }}" for="{{adList}}">
+                    <image src="{{$item.src}}"></image>
+                </block>
+            </swiper>
+            <div class="recent-read" href="/pages/book/chapter/detail/detail?novelid=1&chaptercode=2">
+                <text class="recent-read-title">继续阅读</text>
+                <div if="{{true}}" class="recent-read-content">
+                    <text class="recent-read-novel">《我当上门女婿的那些年》</text>
+                    <text class="recent-read-chapter">第四章 金钱至上金钱至上</text>
+                </div>
+            </div>
+        <div class="recommend"></div>
+        </div>
+    </div>
+</template>
+<style>
+    .header {
+        width: 750px;
+        height: 90px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+    }
+    
+    .header text {
+        font-size: 36px;
+        color: black;
+    }
+    
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+    
+    .search-icon {
+        height: 36px;
+        width: 36px;
+    }
+    
+    .body {
+        position: fixed;
+        top: 90px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+    }
+    
+    .banner {
+        height: 300px;
+        width: 750px;
+    }
+</style>
+<script>
+    export default {
+        private: {
+            siteName: '麦子阅读',
+            adList: [{
+                src: '/images/defaultcover.png'
+            }, {
+                src: '/images/guide_01.png'
+            }, {
+                src: '/images/guide_03.png'
+            }]
+        }
+    }
+</script>

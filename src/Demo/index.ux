@@ -5,6 +5,7 @@
     <!-- 点击跳转详情页 -->
     <input class="btn" type="button" value="跳转到详情页" onclick="routeDetail">
     <input class="btn" type="button" value="跳转到测试页1" onclick="routeTest1">
+    <input class="btn" type="button" value="跳转到首页" onclick="routeIndex">
   </div>
 </template>
 
@@ -47,6 +48,11 @@
         routeTest1() {
             router.push({
                 uri: '/Test'
+            })
+        },
+        routeIndex() {
+            router.push({
+                uri: '/pages/index'
             })
         }
     }

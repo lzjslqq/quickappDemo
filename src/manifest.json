@@ -32,6 +32,9 @@
             },
             "Test": {
                 "component": "test1"
+            },
+            "pages/index": {
+                "component": "index"
             }
         }
     },
@@ -50,6 +53,10 @@
             },
             "About": {
                 "menu": false
+            },
+            "pages/index": {
+                "titleBarText": "麦子小说",
+                "menu": true
             }
         }
     }
