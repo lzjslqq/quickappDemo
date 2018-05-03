@@ -11,18 +11,40 @@
                     <image src="{{$item.src}}"></image>
                 </block>
             </swiper>
-            <div class="recent-read" href="/pages/book/chapter/detail/detail?novelid=1&chaptercode=2">
+            <div if="{{true}}" class="recent-read">
                 <text class="recent-read-title">继续阅读</text>
-                <div if="{{true}}" class="recent-read-content">
-                    <text class="recent-read-novel">《我当上门女婿的那些年》</text>
-                    <text class="recent-read-chapter">第四章 金钱至上金钱至上</text>
-                </div>
+                <text class="recent-read-item novel-name">《我当上门女婿的那些年》</text>
+                <text class="recent-read-item">第四章 金钱至上金钱至上</text>
             </div>
-        <div class="recommend"></div>
+            <tabs>
+                <tab-bar>
+                    <text class="tab-bar {{tabIndex==0?'active':''}}" @click="tabIndexChange(0)">女频</text>
+                    <text class="tab-bar {{tabIndex==1?'active':''}}" @click="tabIndexChange(1)">男频</text>
+                </tab-bar>
+                <tab-content class="tab-content">
+                    <div class="tab-content-section">
+                        <div class="recommend-title">
+                            <text class="recommend-name title">热门推荐</text>
+                            <text class="recommend-name">更多 ></text>
+                        </div>
+                        <div class="recommend-list-column"></div>
+                    </div>
+                    <div class="tab-content-section">
+                        <div class="recommend-title">
+                            <text class="recommend-name title">主编力推</text>
+                            <text class="recommend-name">更多 ></text>
+                        </div>
+                        <div class="recommend-list-column">
+                            <div class="recommend-list-item"></div>
+                            <div class="recommend-list-item"></div>
+                        </div>
+                    </div>
+                </tab-content>
+            </tabs>
         </div>
     </div>
 </template>
-<style>
+<style scoped>
     .header {
         width: 750px;
         height: 90px;
@@ -39,7 +61,7 @@
     
     .header text {
         font-size: 36px;
-        color: black;
+        color: #000000;
     }
     
     .logo {
@@ -53,6 +75,7 @@
     }
     
     .body {
+        background-color: #ebebeb;
         position: fixed;
         top: 90px;
         left: 0;
@@ -63,6 +86,92 @@
     .banner {
         height: 300px;
         width: 750px;
+    }
+    
+    .recent-read {
+        background-color: #ffffff;
+        padding: 24px 0;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .recent-read-title {
+        width: 160px;
+        height: 30px;
+        text-align: center;
+        color: #ff5c4d;
+        font-size: 30px;
+        line-height: 30px;
+        border-right-width: 2px;
+        border-right-color: #dadada;
+    }
+    
+    .recent-read-item {
+        lines: 1;
+        flex-grow: 1;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+    
+    .novel-name {
+        color: #000000;
+    }
+    
+    tabs {
+        width: 750px;
+        background-color: #ffffff;
+    }
+    
+    tab-bar {
+        border-bottom-width: 1px;
+        border-bottom-color: #ebebeb;
+    }
+    
+    .tab-bar {
+        height: 100px;
+        color: #b2b2b2;
+        font-size: 34px;
+    }
+    
+    .active {
+        font-weight: bold;
+        color: #ff5c4d;
+        border-bottom-width: 6px;
+        border-bottom-color: #ff5c4d;
+    }
+    
+    .tab-content-section {
+        width: 750px;
+        flex-wrap: wrap;
+    }
+    
+    .recommend-title {
+        width: 100%;
+        height: 100px;
+        padding: 30px 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .recommend-title .title {
+        color: #ff5c4d;
+        font-size: 34px;
+        font-weight: bold;
+        border-left-color: #ff5c4d;
+        border-left-width: 6px;
+    }
+    
+    .recommend-name {
+        height: 40px;
+        padding: 0 30px;
+        font-size: 26px;
+    }
+    
+    .recommend-list-column {
+        width: 750px;
+        padding: 0 30px;
+        flex-direction: column;
     }
 </style>
 <script>
@@ -75,7 +184,13 @@
                 src: '/images/guide_01.png'
             }, {
                 src: '/images/guide_03.png'
-            }]
+            }],
+            tabIndex: 0,
+        },
+        tabIndexChange(index, evt) {
+
+            this.tabIndex = index;
+            console.debug(evt);
         }
     }
 </script>
