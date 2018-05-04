@@ -5,174 +5,94 @@
             <text>{{siteName}}</text>
             <image class="search-icon" src="/images/search_icon.png"></image>
         </div>
-        <div class="body">
-            <swiper class="banner" autoplay="true" interval="2000">
-                <block if="{{ adList.length > 0 }}" for="{{adList}}">
-                    <image src="{{$item.src}}"></image>
-                </block>
-            </swiper>
-            <div if="{{true}}" class="recent-read">
-                <text class="recent-read-title">继续阅读</text>
-                <text class="recent-read-item novel-name">《我当上门女婿的那些年》</text>
-                <text class="recent-read-item">第四章 金钱至上金钱至上</text>
-            </div>
-            <tabs>
-                <tab-bar>
+        <list class="body">
+            <list-item type="banner">
+                <swiper class="banner" autoplay="true" interval="3000">
+                    <block if="{{ adList.length > 0 }}" for="{{adList}}">
+                        <image src="{{$item.src}}"></image>
+                    </block>
+                </swiper>
+            </list-item>
+            <list-item type="readRecord">
+                <div if="{{true}}" class="recent-read">
+                    <text class="recent-read-title">继续阅读</text>
+                    <text class="recent-read-item novel-name">《我当上门女婿的那些年》</text>
+                    <text class="recent-read-item">第四章 金钱至上金钱至上</text>
+                </div>
+            </list-item>
+            <list-item type="flexible-tabbar" class="flexible-tabbar">
+                <div>
                     <text class="tab-bar {{tabIndex==0?'active':''}}" @click="tabIndexChange(0)">女频</text>
+                </div>
+                <div>
                     <text class="tab-bar {{tabIndex==1?'active':''}}" @click="tabIndexChange(1)">男频</text>
-                </tab-bar>
-                <tab-content class="tab-content">
-                    <div class="tab-content-section">
-                        <div class="recommend-title">
-                            <text class="recommend-name title">热门推荐</text>
-                            <text class="recommend-name">更多 ></text>
+                </div>
+            </list-item>
+            <list-item type="recommendList">
+                <swiper id="listSwiper" class="tab-bar-list" indicator="false">
+                    <div class="tab-content">
+                        <div class="tab-content-section">
+                            <div class="recommend-title">
+                                <text class="recommend-name title">热门推荐</text>
+                                <text class="recommend-name">更多 ></text>
+                            </div>
+                            <div class="recommend-list-column">
+                                <div class="recommend-list-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="recommend-list-column"></div>
+                        <div class="tab-content-section">
+                            <div class="recommend-title">
+                                <text class="recommend-name title">潜力新作</text>
+                                <text class="recommend-name">更多 ></text>
+                            </div>
+                            <div class="recommend-list-row">
+                                <div class="recommend-list-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content-section">
+                            <div class="recommend-title">
+                                <text class="recommend-name title">主编力推</text>
+                                <text class="recommend-name">更多 ></text>
+                            </div>
+                            <div class="recommend-list-column">
+                                <div class="recommend-list-item"></div>
+                                <div class="recommend-list-item"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-content-section">
-                        <div class="recommend-title">
-                            <text class="recommend-name title">主编力推</text>
-                            <text class="recommend-name">更多 ></text>
-                        </div>
-                        <div class="recommend-list-column">
-                            <div class="recommend-list-item"></div>
-                            <div class="recommend-list-item"></div>
-                        </div>
-                    </div>
-                </tab-content>
-            </tabs>
-        </div>
+                </swiper>
+            </list-item>
+        </list>
     </div>
 </template>
 <style scoped>
-    .header {
-        width: 750px;
-        height: 90px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 30px;
-    }
-    
-    .header text {
-        font-size: 36px;
-        color: #000000;
-    }
-    
-    .logo {
-        height: 60px;
-        width: 60px;
-    }
-    
-    .search-icon {
-        height: 36px;
-        width: 36px;
-    }
-    
-    .body {
-        background-color: #ebebeb;
-        position: fixed;
-        top: 90px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-    }
-    
-    .banner {
-        height: 300px;
-        width: 750px;
-    }
-    
-    .recent-read {
-        background-color: #ffffff;
-        padding: 24px 0;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-    
-    .recent-read-title {
-        width: 160px;
-        height: 30px;
-        text-align: center;
-        color: #ff5c4d;
-        font-size: 30px;
-        line-height: 30px;
-        border-right-width: 2px;
-        border-right-color: #dadada;
-    }
-    
-    .recent-read-item {
-        lines: 1;
-        flex-grow: 1;
-        text-overflow: ellipsis;
-        text-align: center;
-    }
-    
-    .novel-name {
-        color: #000000;
-    }
-    
-    tabs {
-        width: 750px;
-        background-color: #ffffff;
-    }
-    
-    tab-bar {
-        border-bottom-width: 1px;
-        border-bottom-color: #ebebeb;
-    }
-    
-    .tab-bar {
-        height: 100px;
-        color: #b2b2b2;
-        font-size: 34px;
-    }
-    
-    .active {
-        font-weight: bold;
-        color: #ff5c4d;
-        border-bottom-width: 6px;
-        border-bottom-color: #ff5c4d;
-    }
-    
-    .tab-content-section {
-        width: 750px;
-        flex-wrap: wrap;
-    }
-    
-    .recommend-title {
-        width: 100%;
-        height: 100px;
-        padding: 30px 0;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .recommend-title .title {
-        color: #ff5c4d;
-        font-size: 34px;
-        font-weight: bold;
-        border-left-color: #ff5c4d;
-        border-left-width: 6px;
-    }
-    
-    .recommend-name {
-        height: 40px;
-        padding: 0 30px;
-        font-size: 26px;
-    }
-    
-    .recommend-list-column {
-        width: 750px;
-        padding: 0 30px;
-        flex-direction: column;
-    }
+    @import './index.css';
 </style>
 <script>
     export default {
@@ -190,7 +110,9 @@
         tabIndexChange(index, evt) {
 
             this.tabIndex = index;
-            console.debug(evt);
+            this.$element('listSwiper').swipeTo({
+                index: this.tabIndex
+            });
         }
     }
 </script>
