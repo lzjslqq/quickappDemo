@@ -1,0 +1,69 @@
+<template>
+    <div class="bottom-tab-bar">
+        <div class="bar-item" @click="iconSelected(0)">
+            <image show="{{selectedIndex==0}}" src="/images/bookshelf_hl.png"></image>
+            <image show="{{selectedIndex!=0}}" src="/images/bookshelf.png"></image>
+            <text class="{{selectedIndex==0?'item-selected':''}}">精选</text>
+        </div>
+        <div class="bar-item" @click="iconSelected(1)">
+            <image show="{{selectedIndex==1}}" src="/images/featured_hl.png"></image>
+            <image show="{{selectedIndex!=1}}" src="/images/featured.png"></image>
+            <text class="{{selectedIndex==1?'item-selected':''}}">书架</text>
+        </div>
+        <div class="bar-item" @click="iconSelected(2)">
+            <image show="{{selectedIndex==2}}" src="/images/booklist_hl.png"></image>
+            <image show="{{selectedIndex!=2}}" src="/images/booklist.png"></image>
+            <text class="{{selectedIndex==2?'item-selected':''}}">书库</text>
+        </div>
+        <div class="bar-item" @click="iconSelected(3)">
+            <image show="{{selectedIndex==3}}" src="/images/user_hl.png"></image>
+            <image show="{{selectedIndex!=3}}" src="/images/user.png"></image>
+            <text class="{{selectedIndex==3?'item-selected':''}}">我的</text>  
+        </div>
+    </div>  
+</template>
+<style scoped>
+    .bottom-tab-bar {
+        width: 750px;
+        height: 100px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #f7f7fa;
+        border-top-width: 1px;
+        border-top-color: #f7f7fa;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .bar-item {
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .bar-item image {
+        width: 54px;
+        height: 54px;
+    }
+    
+    .item-selected {
+        color: #FF5C4D;
+    }
+</style>
+<script>
+    export default {
+        data: {
+            selectedIndex: 0
+        },
+        props: ['barIndex'],
+        onInit() {
+            this.selectedIndex = this.barIndex;
+        },
+        iconSelected(num, e) {
+
+            this.selectedIndex = num;
+        }
+    }
+</script>

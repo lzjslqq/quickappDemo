@@ -70,16 +70,6 @@
     color: #000000;
 }
 
-tabs {
-    width: 750px;
-    background-color: #ffffff;
-}
-
-tab-bar {
-    border-bottom-width: 1px;
-    border-bottom-color: #ebebeb;
-}
-
 .tab-bar {
     background-color: #ffffff;
     height: 100px;
@@ -139,32 +129,32 @@ tab-bar {
     flex-wrap: wrap;
 }
 
-.recommend-list-item {
+.recommend-list-column-item {
     width: 690px;
     height: 200px;
     margin-bottom: 20px;
     justify-content: space-between;
 }
 
-.recommend-list-item image {
+.recommend-list-column-item image {
     width: 150px;
     height: 200px;
 }
 
-.recommend-list-item .item-desc {
+.recommend-list-column-item .item-desc {
     width: 520px;
     height: 150px;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-.recommend-list-item .item-desc .title {
+.recommend-list-column-item .item-desc .title {
     lines: 1;
     font-size: 32px;
     color: #000000;
 }
 
-.recommend-list-item .item-desc .desc {
+.recommend-list-column-item .item-desc .desc {
     lines: 2;
     font-size: 28px;
     text-overflow: ellipsis;
@@ -175,11 +165,44 @@ tab-bar {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0 30px;
+    justify-content: space-between;
+}
+
+.recommend-list-row-item {
+    height: 280px;
+    width: 180px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.recommend-list-row-item image {
+    height: 240px;
+    width: 180px;
+}
+
+.recommend-list-row-item text {
+    lines: 1;
+    text-overflow: ellipsis;
+    height: 28px;
+    width: 180px;
+    font-size: 28px;
+    color: #353535;
+    text-align: center;
+}
+
+.empty {
+    height: 0;
+    width: 180px
 }
 
 .flexible-tabbar {
     width: 750px;
     background-color: #ffffff;
+    border-bottom-color: #ebebeb;
+    border-bottom-width: 1px;
 }
 
 .flexible-tabbar>div {
@@ -189,5 +212,5 @@ tab-bar {
 
 .tab-bar-list {
     width: 750px;
-    height: 1500px;
+    height: 2800px;
 }

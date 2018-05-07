@@ -1,3 +1,4 @@
+<import name='com-bottomTabBar' src='../../components/bottomTabBar'></import>
 <template>
     <div class="page">
         <div class="header">
@@ -29,7 +30,7 @@
                 </div>
             </list-item>
             <list-item type="recommendList">
-                <swiper id="listSwiper" class="tab-bar-list" indicator="false">
+                <swiper id="listSwiper" class="tab-bar-list" indicator="false" @change="swiperIndexChange">
                     <div class="tab-content">
                         <div class="tab-content-section">
                             <div class="recommend-title">
@@ -37,14 +38,14 @@
                                 <text class="recommend-name">更多 ></text>
                             </div>
                             <div class="recommend-list-column">
-                                <div class="recommend-list-item">
+                                <div class="recommend-list-column-item">
                                     <image src="/images/defaultcover.png"></image>
                                     <div class="item-desc">
                                         <text class="title">深渊之下</text>
                                         <text class="desc">我从未想过</text>
                                     </div>
                                 </div>
-                                <div class="recommend-list-item">
+                                <div class="recommend-list-column-item">
                                     <image src="/images/defaultcover.png"></image>
                                     <div class="item-desc">
                                         <text class="title">深渊之下</text>
@@ -59,14 +60,94 @@
                                 <text class="recommend-name">更多 ></text>
                             </div>
                             <div class="recommend-list-row">
-                                <div class="recommend-list-item">
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下</text>
+                                </div>
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下123</text>
+                                </div>
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下1234</text>
+                                </div>
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下123456</text>
+                                </div>
+                                <div class="empty">
+                                </div>
+                                <div class="empty">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content-section">
+                            <div class="recommend-title">
+                                <text class="recommend-name title">人气排行</text>
+                                <text class="recommend-name">更多 ></text>
+                            </div>
+                            <div class="recommend-list-column">
+                                <div class="recommend-list-column-item">
                                     <image src="/images/defaultcover.png"></image>
                                     <div class="item-desc">
                                         <text class="title">深渊之下</text>
                                         <text class="desc">我从未想过</text>
                                     </div>
                                 </div>
-                                <div class="recommend-list-item">
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-content-section">
+                            <div class="recommend-title">
+                                <text class="recommend-name title">主编力推</text>
+                                <text class="recommend-name">更多 ></text>
+                            </div>
+                            <div class="recommend-list-column">
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
                                     <image src="/images/defaultcover.png"></image>
                                     <div class="item-desc">
                                         <text class="title">深渊之下</text>
@@ -77,18 +158,87 @@
                         </div>
                         <div class="tab-content-section">
                             <div class="recommend-title">
-                                <text class="recommend-name title">主编力推</text>
+                                <text class="recommend-name title">火热新书</text>
+                                <text class="recommend-name">更多 ></text>
+                            </div>
+                            <div class="recommend-list-row">
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下</text>
+                                </div>
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下123</text>
+                                </div>
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下1234</text>
+                                </div>
+                                <div class="recommend-list-row-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <text class="title">深渊之下123456</text>
+                                </div>
+                                <div class="empty">
+                                </div>
+                                <div class="empty">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content-section">
+                            <div class="recommend-title">
+                                <text class="recommend-name title">人气排行</text>
                                 <text class="recommend-name">更多 ></text>
                             </div>
                             <div class="recommend-list-column">
-                                <div class="recommend-list-item"></div>
-                                <div class="recommend-list-item"></div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
+                                <div class="recommend-list-column-item">
+                                    <image src="/images/defaultcover.png"></image>
+                                    <div class="item-desc">
+                                        <text class="title">深渊之下</text>
+                                        <text class="desc">我从未想过有一天席慕深会带着怀孕的小三，逼我离婚，我惨败在小三张狂的笑声中，从此，我走上了复仇之路</text>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </swiper>
             </list-item>
         </list>
+        <com-bottomTabBar bar-Index="{{bottomTabBar}}"></com-bottomTabBar>
     </div>
 </template>
 <style scoped>
@@ -97,6 +247,7 @@
 <script>
     export default {
         private: {
+            bottomTabBar: 0,
             siteName: '麦子阅读',
             adList: [{
                 src: '/images/defaultcover.png'
@@ -113,6 +264,10 @@
             this.$element('listSwiper').swipeTo({
                 index: this.tabIndex
             });
+        },
+        swiperIndexChange(evt) {
+
+            this.tabIndex = evt.index;
         }
     }
 </script>
